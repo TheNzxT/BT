@@ -1,0 +1,27 @@
+// ==UserScript==
+// @name         Ajout de bouton sur BT
+// @version      0.1
+// @description  Permet d'ajouter des bouton sur BankTycoon
+// @author       NzxT
+// @match        https://banktycoon.com/s3/*
+// @grant        none
+// ==/UserScript==
+
+function addJQuery(callback) {
+  var script = document.createElement("script");
+  script.setAttribute("src", "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js");
+  script.addEventListener('load', function() {
+    var script = document.createElement("script");
+    script.textContent = "window.jQ=jQuery.noConflict(true);(" + callback.toString() + ")();";
+    document.body.appendChild(script);
+  }, false);
+  document.body.appendChild(script);
+}
+
+// Changer le lien après action (page souhaitée) et Value (Nom du bouton sur la page)
+
+//Bouton attaquer 
+document.getElementById('panel_shareprices_body').innerHTML += '<center><form target="_blank" action="https://banktycoon.com/s3/securite/attaque-agence-1998-18774"><input type="submit" onclick="js.Js.reboot();" value="Attaquer Gateau Factory" class="button"/></form></center>';
+
+//Bouton Portefeuille
+document.getElementById('panel_shareprices_body').innerHTML += '<center><form target="_blank" action="https://banktycoon.com/s3/finance/mycontrol"><input type="submit" onclick="js.Js.reboot();" value="Portefeuille" class="button"/></form></center>';
